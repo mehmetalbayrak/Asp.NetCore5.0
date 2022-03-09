@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace CoreDemo.Controllers
 {
-    public class CategoryController : Controller
+    public class BlogController : Controller
     {
-        CategoryManager _categoryManager = new CategoryManager(new EfCategoryDal());
+        BlogManager _blogManager = new BlogManager(new EfBlogDal());
         public IActionResult Index()
         {
-            var categories = _categoryManager.GetList();
-            return View(categories);
+            var blogs = _blogManager.GetList();
+            return View(blogs);
         }
     }
 }
