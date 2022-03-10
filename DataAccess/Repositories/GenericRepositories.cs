@@ -3,6 +3,7 @@ using DataAccess.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,6 +34,14 @@ namespace DataAccess.Repositories
             using (Context context = new Context())
             {
                 return context.Set<T>().ToList();
+            }
+        }
+
+        public List<T> GetAll(Expression<Func<T, bool>> filter)
+        {
+            using (Context context=new Context ())
+            {
+                return context.Set<T>().Where(filter).ToList();
             }
         }
 

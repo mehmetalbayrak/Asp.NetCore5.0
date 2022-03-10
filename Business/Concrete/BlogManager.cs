@@ -28,9 +28,19 @@ namespace Business.Concrete
             _blogDal.Delete(blog);
         }
 
+        public List<Blog> GetBlogsById(int id)
+        {
+            return _blogDal.GetAll(x => x.BlogId == id);
+        }
+
         public List<Blog> GetList()
         {
             return _blogDal.GetAll();
+        }
+
+        public List<Blog> GetListWithCategory()
+        {
+            return _blogDal.GetListWithCategory();
         }
 
         public Blog GeyById(int id)

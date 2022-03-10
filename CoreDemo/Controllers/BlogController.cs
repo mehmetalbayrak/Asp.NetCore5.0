@@ -13,8 +13,13 @@ namespace CoreDemo.Controllers
         BlogManager _blogManager = new BlogManager(new EfBlogDal());
         public IActionResult Index()
         {
-            var blogs = _blogManager.GetList();
+            var blogs = _blogManager.GetListWithCategory();
             return View(blogs);
+        }
+        public IActionResult BlogDetails(int id)
+        {
+            var values = _blogManager.GeyById(id);
+            return View(values);
         }
     }
 }
